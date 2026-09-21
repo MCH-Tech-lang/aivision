@@ -10,6 +10,7 @@ class vision_camera:
         self.Pasha=1
         self.Misha=1
         self.Mediana=1
+        self.previous_frame=None
     def video_capture(self):
         
         while True:
@@ -17,6 +18,14 @@ class vision_camera:
             key=cv2.waitKeyEx(1)&0xFF
             
             gray_frame=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+            if self.previous_frame is None:
+                self.previous_frame=gray_frame
+                continue
+           
+            diff_frame=cv2.absdiff(self.previous_frame,gray_frame)
+            summ_frame=diff_frame.sum()
+            if summ_frame>2000000:
+                print("[WARNING]Motion detected!")    
             self.faces=self.cascad.detectMultiScale(gray_frame,1.1,4)
             if len(self.faces)==0:
                 self.faces=self._cascad_profile.detectMultiScale(gray_frame,1.1,4)
@@ -50,6 +59,7 @@ class vision_camera:
                 self.Mediana+=1
             if key==ord("q"):
                 break
+            self.previous_frame=gray_frame
             cv2.imshow("Мое видео",frame)
             cv2.imshow("Видео для нейросети",gray_frame)
                       
