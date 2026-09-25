@@ -23,38 +23,33 @@ class VisionApp:
                     cv2.imwrite(f"father_{self.Father}.jpg",frame)
                     print(f" фото номер {self.Father} Отца сохранен")
                     self.Father+=1
+                    cv2.waitKey(500)
                 if key==ord("M"):
                     cv2.imwrite(f"mother_{self.Mother}.jpg",frame)
                     print(f"фото номер {self.Mother} Мамы есть")
                     self.Mother+=1
+                    cv2.waitKey(500)
                 if key==ord("b"):
                     cv2.imwrite(f"babushka_{self.Grandma}.jpg",frame)
                     print(f"фото номер {self.Grandma} бабушки есть")
                     self.Grandma+=1
-                if key==ord("p"):
-                    cv2.imwrite(f"pasha_{self.Pasha}.jpg",frame)
-                    self.Pasha+=1
+                    cv2.waitKey(500)
 
-                if key==ord("M"):
-                    cv2.imwrite(f"mother_{self.Mother}.jpg",frame)
-                    print(f"фото номер {self.Mother} Мамы есть")
-                    self.Mother+=1
-                if key==ord("b"):
-                    cv2.imwrite(f"babushka_{self.Grandma}.jpg",frame)
-                    print(f"фото номер {self.Grandma} бабушки есть")
-                    self.Grandma+=1
                 if key==ord("p"):
                     cv2.imwrite(f"pasha_{self.Pasha}.jpg",frame)
                     print(f"фото номер {self.Pasha} Паши есть")
                     self.Pasha+=1
+                    cv2.waitKey(500)
                 if key==ord("m"):
                     cv2.imwrite(f"Misha_{self.Misha}.jpg",frame)
                     print(f"Фото номер {self.Misha} Миши сохранен")
                     self.Misha+=1
+                    cv2.waitKey(500)
                 if key==ord("d"):
                     cv2.imwrite(f"mediana_{self.Mediana}.jpg",frame)
                     print(f"фото номер {self.Mediana} Медианы сохранен")
                     self.Mediana+=1
+                    cv2.waitKey(500)
                 if key==ord("q"):
                     break
                 cv2.imshow("Мой видеопоток",frame)
